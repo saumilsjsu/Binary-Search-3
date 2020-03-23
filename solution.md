@@ -78,3 +78,29 @@ No.
                             return end 
 
                         return len(arr)
+
+# Problem 3 -  Optimize Air Routes
+## Time Complexity :
+O()
+
+## Space Complexity :
+O()
+
+## Did this code successfully run on Leetcode :
+N/A
+
+## Any problem you faced while coding this :
+
+        
+### Solution:
+def closestXDestionation(forward, backward, maximum):
+  combined = [[i, j] for i in forward for j in backward]
+
+  temp = []
+  for i in range(len(combined)):
+    if combined[i][0][1] + combined[i][1][1] <= maximum:
+      temp.append([combined[i][0],combined[i][1]])
+
+  largest = max(temp, key=lambda x:x[0][1] + x[1][1])
+  route = [path[0] for path in largest]
+  return route
